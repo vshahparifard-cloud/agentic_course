@@ -456,3 +456,270 @@ footer a:hover {
         opacity: 0.7;
     }
 }
+
+/* Slide Presentation Action Buttons */
+.slides-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.slides-btn-primary {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--neon-blue);
+    color: #08090f;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    box-shadow: var(--glow-blue);
+}
+
+.slides-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+
+}
+
+.slides-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.slides-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Presentation Modal Overlay */
+.slide-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(8, 9, 15, 0.96);
+    backdrop-filter: blur(16px);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.slide-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Header Bar */
+.modal-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(18, 20, 32, 0.8);
+}
+
+.modal-session-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.modal-session-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.slide-counter-badge {
+    background: rgba(0, 242, 254, 0.12);
+    color: #00f2fe;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.modal-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-icon-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.modal-icon-btn:hover {
+    background: rgba(0, 242, 254, 0.2);
+    color: #00f2fe;
+    border-color: rgba(0, 242, 254, 0.4);
+}
+
+/* Slide Viewport & Stage */
+.slide-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-arrow-btn {
+    background: rgba(18, 20, 32, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    z-index: 10;
+    backdrop-filter: blur(8px);
+}
+
+.nav-arrow-btn:hover:not(:disabled) {
+    background: var(--neon-blue);
+    color: #08090f;
+    box-shadow: var(--glow-blue);
+    border-color: transparent;
+}
+
+.nav-arrow-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.slide-viewport {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 16px;
+}
+
+.current-slide-img {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Progress Bar */
+.slide-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.slide-progress-inner {
+    height: 100%;
+    width: 0%;
+    background: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+    transition: width 0.3s ease;
+}
+
+/* Thumbnails Drawer */
+.thumbnails-drawer {
+    display: flex;
+    gap: 12px;
+    padding: 16px 28px;
+    overflow-x: auto;
+    background: rgba(12, 14, 24, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    scroll-behavior: smooth;
+}
+
+.thumbnails-drawer::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumb-item {
+    position: relative;
+    flex: 0 0 120px;
+    height: 68px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-num {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.thumb-item:hover {
+    opacity: 0.85;
+    border-color: rgba(0, 242, 254, 0.5);
+}
+
+.thumb-item.active {
+    opacity: 1;
+    border-color: #00f2fe;
+    box-shadow: var(--glow-blue);
+}
+
